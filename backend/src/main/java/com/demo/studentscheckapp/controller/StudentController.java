@@ -1,5 +1,6 @@
 package com.demo.studentscheckapp.controller;
 
+import com.demo.studentscheckapp.dto.StudentRequest;
 import com.demo.studentscheckapp.model.Grade;
 import com.demo.studentscheckapp.model.Student;
 import com.demo.studentscheckapp.repository.StudentRepository;
@@ -25,9 +26,9 @@ public class StudentController {
     }
 
     @PostMapping("/students")
-    public ResponseEntity<Student> createStudent(@RequestBody String name) {
+    public ResponseEntity<Student> createStudent(@RequestBody StudentRequest studentRequest) {
         Student student = new Student();
-        student.setName(name);
+        student.setName(studentRequest.getName());
         studentService.createStudent(student);
         return ResponseEntity.ok(student);
     }
