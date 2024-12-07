@@ -32,9 +32,6 @@ const StudentsList = () => {
             </div>
             <div className='page-content'>
                 <div className='options'>
-                    <div className='search-bar'>
-                        <input placeholder='Search for a stuednt...'></input>
-                    </div>
                     <div className='add-student-form'>
                         <form onSubmit={handleSubmit}>
                             <input type='text' name='name' value={name} onChange={handleInputChange} placeholder='Enter a new student name...' required></input>
