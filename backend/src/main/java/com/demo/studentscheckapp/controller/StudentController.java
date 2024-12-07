@@ -3,7 +3,6 @@ package com.demo.studentscheckapp.controller;
 import com.demo.studentscheckapp.dto.StudentRequest;
 import com.demo.studentscheckapp.model.Grade;
 import com.demo.studentscheckapp.model.Student;
-import com.demo.studentscheckapp.repository.StudentRepository;
 import com.demo.studentscheckapp.service.StudentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,18 +32,22 @@ public class StudentController {
         return ResponseEntity.ok(student);
     }
 
-/*
-    record StudentResponse(String name) {
-
+    @GetMapping("/students/{id}")
+    public ResponseEntity<Student> getStudentById(@PathVariable int id) {
+        try {
+            return ResponseEntity.ok(studentService.getStudent(id));
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    @GetMapping
-    public ResponseEntity<List<Grade>> getStudentGrades(Student student) {
-        return null;
+    @GetMapping("/students/{id}/grades")
+    public ResponseEntity<List<Grade>> getStudentGrades(@PathVariable int id) {
+        try {
+            List<Grade> grades = studentService.getStudentGrades(id);
+            return ResponseEntity.ok(grades);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
-
-    @PostMapping
-    public void addStuentGrade(Student student, Grade grade) {
-        return;
-    }*/
 }

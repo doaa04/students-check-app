@@ -1,16 +1,15 @@
 package com.demo.studentscheckapp.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import lombok.experimental.NonFinal;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "students")
@@ -30,4 +29,7 @@ public class Student {
     @CreatedDate
     @Column(name = "creation_date", updatable = false)
     private Date createDate;
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Grade> grades;
 }

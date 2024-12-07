@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getStudents, createStudent } from "../services/StudentService";
 
 const StudentsList = () => {
-    // display student
-
     const [students, setStudents] = useState([]);
 
     useEffect(() => {
         loadStudents();
-    }, []); // runs only once (one render)
+    }, []); 
 
     const loadStudents = async () => {
         const response = await getStudents();
-        console.log(response.data);
         setStudents(response.data);
     };
     
-    // add student
-
     const [name, setName] = useState("");
 
     const handleInputChange = (e) => {
@@ -50,13 +46,11 @@ const StudentsList = () => {
                     <ul>
                         {students.map((student) => (
                             <li key={student.id}>
-                                {student.name} : {student.createDate}
+                                <Link to={`/students/${student.id}/grades`}>{student.name} </Link> : {student.createDate}
                             </li>
                         ))}
                     </ul>
                 </div>
-            </div>
-            <div className='page-navbar'>
             </div>
         </div>
     );

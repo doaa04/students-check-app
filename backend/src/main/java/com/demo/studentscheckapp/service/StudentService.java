@@ -1,10 +1,10 @@
 package com.demo.studentscheckapp.service;
 
+import com.demo.studentscheckapp.model.Grade;
 import com.demo.studentscheckapp.model.Student;
 import com.demo.studentscheckapp.repository.StudentRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,5 +22,15 @@ public class StudentService {
 
     public void createStudent(Student student) {
         studentRepository.save(student);
+    }
+
+    public List<Grade> getStudentGrades(int id) {
+        Student student = getStudent(id);
+        return student.getGrades();
+    }
+
+    public Student getStudent(int id) {
+        return studentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Student not found with id " + id));
     }
 }
