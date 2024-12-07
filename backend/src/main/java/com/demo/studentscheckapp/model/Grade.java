@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Grade {
     @Id
+    @SequenceGenerator(name = "grades_id_seq", sequenceName = "grades_id_seq")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 

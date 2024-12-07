@@ -6,3 +6,4 @@ export const getStudents = () => axios.get(API_URL);
 export const createStudent = (name) => axios.post(API_URL, { name });
 export const getStudentGrades = (id) => axios.get(`${API_URL}/${id}/grades`);
 export const getStudent = (id) => axios.get(`${API_URL}/${id}`);
+export const addGrade = (grade, id) => axios.post(`${API_URL}/${id}/grades`, grade);

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getStudentGrades, getStudent } from "../services/StudentService";
+import { getStudentGrades, getStudent, addGrade } from "../services/StudentService";
 import { useParams } from "react-router-dom";
 
 const StudentGrades = () => {
@@ -22,6 +22,20 @@ const StudentGrades = () => {
         setStudent(response.data);
     };
 
+    const [course, setCourse] = useState("");
+    const [grade, setGrade] = useState();
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        if (name === "course") setCourse(value);
+        if (name === "grade") setGrade(value);
+    };
+
+    const handleSubmit = () => {
+        const newGrade = { course: course, grade: grade };
+        addGrade(newGrade, id);
+    }
+
     return (
         <div>
             <div className='page-title'>
@@ -30,10 +44,10 @@ const StudentGrades = () => {
             <div className='page-content'>
                 <div className='options'>
                     <div className='add-student-form'>
-                        <form>
-                            <input placeholder="Eneter/Select the course's name..."></input>
-                            <input placeholder="Enter the grade..."></input>
-                            <button>+</button>
+                        <form onSubmit={handleSubmit}>
+                            <input type="text" name="course" value={course} onChange={handleInputChange} placeholder="Eneter/Select the course's name..." required></input>
+                            <input type="number" name="grade" value={grade} onChange={handleInputChange} placeholder="Enter the grade..." min="0" max="20" step="0.01" required></input>
+                            <button type="submit">+</button>
                         </form>
                     </div>
                 </div>

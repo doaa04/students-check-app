@@ -37,7 +37,7 @@ const StudentsList = () => {
                     </div>
                     <div className='add-student-form'>
                         <form onSubmit={handleSubmit}>
-                            <input type='text' name='name' value={name} onChange={handleInputChange} placeholder='Enter a new student name...'></input>
+                            <input type='text' name='name' value={name} onChange={handleInputChange} placeholder='Enter a new student name...' required></input>
                             <button type='submit'>+</button>
                         </form>
                     </div>

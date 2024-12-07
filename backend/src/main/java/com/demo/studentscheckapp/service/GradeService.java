@@ -14,4 +14,8 @@ public class GradeService {
     public GradeService(GradeRepository gradeRepository) {
         this.gradeRepository = gradeRepository;
     }
+
+    public void addGrade(Grade grade) {
+        gradeRepository.save(grade);
+    }
 }
