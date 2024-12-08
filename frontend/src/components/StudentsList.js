@@ -21,7 +21,9 @@ const StudentsList = () => {
     }
 
     const handleSubmit = async (e) => {
+        e.preventDefault();
         await createStudent(name);
+        loadStudents();
         setName("");
     }
 

@@ -1,13 +1,11 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import StudentsList from './components/StudentsList';
 import StudentGrades from './components/StudentGrades';
-import Navbar from './components/Navbar';
 
 function App() {
   return ( 
     <Router>
       <div className="App">
-        <Navbar />
         <div className='content'>
           <Routes>
             <Route path='/' element={<StudentsList />}></Route>

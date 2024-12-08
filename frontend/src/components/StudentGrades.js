@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getStudentGrades, getStudent, addGrade } from "../services/StudentService";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const StudentGrades = () => {
     const { id } = useParams();
@@ -31,15 +32,20 @@ const StudentGrades = () => {
         if (name === "grade") setGrade(value);
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         const newGrade = { course: course, grade: grade };
-        addGrade(newGrade, id);
+        await addGrade(newGrade, id);
+        loadGrades(id);
+        setCourse("");
+        setGrade("");
     }
 
     return (
         <div>
             <div className='page-title'>
                 <h1>{student.name}</h1>
+                <Link to="/">Students</Link>
             </div>
             <div className='page-content'>
                 <div className='options'>
