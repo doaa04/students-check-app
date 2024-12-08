@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { getStudentGrades, getStudent, addGrade } from "../services/StudentService";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretLeft, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const StudentGrades = () => {
     const { id } = useParams();
@@ -45,9 +47,7 @@ const StudentGrades = () => {
         <div>
             <div className="top">
                 <div className='page-title'>
-                    <Link to="/"> 
-                        Students
-                    </Link>
+                    <Link to="/"> <FontAwesomeIcon icon={faCaretLeft} /> Students </Link>
                     <h1>{student.name}</h1>
                 </div>
                 <div className='options'>
@@ -55,7 +55,7 @@ const StudentGrades = () => {
                         <form onSubmit={handleSubmit}>
                             <input id="left" type="text" name="course" value={course} onChange={handleInputChange} placeholder="Eneter/Select the course's name..." required></input>
                             <input type="number" name="grade" value={grade} onChange={handleInputChange} placeholder="Enter the grade..." min="0" max="20" step="0.01" required></input>
-                            <button type="submit">+</button>
+                            <button type="submit"><FontAwesomeIcon icon={faPlus} /></button>
                         </form>
                     </div>
                 </div>

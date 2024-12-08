@@ -24,18 +24,14 @@ ul {
   color: black;
 }
 
-.options {
-}
-
 .top {
   position: fixed; 
   top: 0;        
   background-color: white;
   z-index: 1000;
-  width: calc(100% - 100px);
+  width: calc(100% - 115px);
   padding: 20px 0;
-  left: 50px;
-  right: 50px;box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .list-container {

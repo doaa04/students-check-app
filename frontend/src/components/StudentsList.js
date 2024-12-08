@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getStudents, createStudent } from "../services/StudentService";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const StudentsList = () => {
     const [students, setStudents] = useState([]);
@@ -37,7 +39,7 @@ const StudentsList = () => {
                     <div className='add-form'>
                         <form onSubmit={handleSubmit}>
                             <input id="left" type='text' name='name' value={name} onChange={handleInputChange} placeholder='Enter a new student name...' required></input>
-                            <button type='submit'>+</button>
+                            <button type='submit'><FontAwesomeIcon icon={faPlus} /></button>
                         </form>
                     </div>
                 </div>
