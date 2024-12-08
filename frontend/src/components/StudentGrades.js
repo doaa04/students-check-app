@@ -43,25 +43,34 @@ const StudentGrades = () => {
 
     return (
         <div>
-            <div className='page-title'>
-                <h1>{student.name}</h1>
-                <Link to="/">Students</Link>
-            </div>
-            <div className='page-content'>
+            <div className="top">
+                <div className='page-title'>
+                    <Link to="/"> 
+                        Students
+                    </Link>
+                    <h1>{student.name}</h1>
+                </div>
                 <div className='options'>
-                    <div className='add-student-form'>
+                    <div className='add-form'>
                         <form onSubmit={handleSubmit}>
-                            <input type="text" name="course" value={course} onChange={handleInputChange} placeholder="Eneter/Select the course's name..." required></input>
+                            <input id="left" type="text" name="course" value={course} onChange={handleInputChange} placeholder="Eneter/Select the course's name..." required></input>
                             <input type="number" name="grade" value={grade} onChange={handleInputChange} placeholder="Enter the grade..." min="0" max="20" step="0.01" required></input>
                             <button type="submit">+</button>
                         </form>
                     </div>
                 </div>
-                <div className='students-list'>
-                    <ul>
+            </div>
+            <div className='page-content'>
+                <div className="list-container">
+                    <ul className="show-list">
                         {grades.map((grade) => (
-                            <li key={grade.id}>
-                                {grade.courseName} : {grade.gradeValue}
+                            <li key={grade.id} className="show-list-element">
+                                <div>
+                                    {grade.courseName}
+                                </div>
+                                <div>
+                                    {grade.gradeValue}
+                                </div>
                             </li>
                         ))}
                     </ul>

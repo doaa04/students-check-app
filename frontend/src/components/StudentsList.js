@@ -29,23 +29,30 @@ const StudentsList = () => {
 
     return (
         <div>
-            <div className='page-title'>
-                <h1>Students</h1>
-            </div>
-            <div className='page-content'>
+            <div className='top'>
+                <div className='page-title' id='students-title'>
+                    <h1>Students</h1>
+                </div>
                 <div className='options'>
-                    <div className='add-student-form'>
+                    <div className='add-form'>
                         <form onSubmit={handleSubmit}>
-                            <input type='text' name='name' value={name} onChange={handleInputChange} placeholder='Enter a new student name...' required></input>
+                            <input id="left" type='text' name='name' value={name} onChange={handleInputChange} placeholder='Enter a new student name...' required></input>
                             <button type='submit'>+</button>
                         </form>
                     </div>
                 </div>
-                <div className='students-list'>
-                    <ul>
+            </div>
+            <div className='page-content'>
+                <div className='list-container'>
+                    <ul className='show-list'>
                         {students.map((student) => (
-                            <li key={student.id}>
-                                <Link to={`/students/${student.id}/grades`}>{student.name} </Link> : {student.createDate}
+                            <li key={student.id} className='show-list-element'>
+                                <div className='student-name'>
+                                    <Link to={`/students/${student.id}/grades`}>{student.name} </Link>
+                                </div>
+                                <div className='student-creation-date'>
+                                    {student.createDate}
+                                </div>
                             </li>
                         ))}
                     </ul>
