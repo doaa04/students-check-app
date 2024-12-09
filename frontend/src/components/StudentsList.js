@@ -29,6 +29,18 @@ const StudentsList = () => {
         setName("");
     }
 
+    const calculateAverage = (grades) => {
+        if (!grades.length) return -1; 
+        const total = grades.reduce((sum, grade) => sum + grade.gradeValue, 0);
+        return total / grades.length;
+    };      
+
+    const getStudentStyle = (average) => {
+        if (average === -1) return "new-student";
+        return average >= 10 ? "student-passed" : "student-failed";
+    };
+      
+
     return (
         <div>
             <div className='top'>
@@ -48,12 +60,16 @@ const StudentsList = () => {
                 <div className='list-container'>
                     <ul className='show-list'>
                         {students.map((student) => (
-                            <li key={student.id} className='show-list-element'>
+                            <li key={student.id} className='show-list-element' id={getStudentStyle(calculateAverage(student.grades))}>
                                 <div className='student-name'>
                                     <Link to={`/students/${student.id}/grades`}>{student.name} </Link>
                                 </div>
                                 <div className='student-creation-date'>
-                                    {student.createDate}
+                                    {new Date(student.createDate).toLocaleDateString('en-US', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric',
+                                    })}
                                 </div>
                             </li>
                         ))}

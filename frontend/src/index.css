@@ -81,7 +81,6 @@ button {
 
 .show-list-element {
   margin-bottom: 5px;
-  border: 1px solid rgb(138, 138, 138);
   border-radius: 10px;
   padding: 8px;
   display: flex;
@@ -92,4 +91,12 @@ button {
 .student-name a {
   text-decoration: none;
   color: black;
+}
+
+#grade-passed, #student-passed {
+  border: 1px solid rgb(28, 154, 55);
+}
+
+#grade-failed, #student-failed {
+  border: 1px solid rgb(190, 26, 26);
 }

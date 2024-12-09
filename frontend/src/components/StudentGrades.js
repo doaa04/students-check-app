@@ -64,12 +64,12 @@ const StudentGrades = () => {
                 <div className="list-container">
                     <ul className="show-list">
                         {grades.map((grade) => (
-                            <li key={grade.id} className="show-list-element">
+                            <li key={grade.id} className="show-list-element" id={grade.gradeValue >= 10 ? "grade-passed" : "grade-failed"}>
                                 <div>
                                     {grade.courseName}
                                 </div>
                                 <div>
-                                    {grade.gradeValue}
+                                    {grade.gradeValue.toFixed(2).padStart(5, '0')}
                                 </div>
                             </li>
                         ))}
