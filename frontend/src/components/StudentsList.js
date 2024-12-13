@@ -45,7 +45,7 @@ const StudentsList = () => {
         <div>
             <div className='top'>
                 <div className='page-title' id='students-title'>
-                    <h1>Students</h1>
+                    <h1>All students</h1>
                 </div>
                 <div className='options'>
                     <div className='add-form'>

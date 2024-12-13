@@ -47,7 +47,9 @@ const StudentGrades = () => {
         <div>
             <div className="top">
                 <div className='page-title'>
-                    <Link to="/"> <FontAwesomeIcon icon={faCaretLeft} /> Students </Link>
+                    <div className="back-button">
+                        <Link to="/"> <FontAwesomeIcon icon={faCaretLeft} /> Students </Link>
+                    </div>
                     <h1>{student.name}</h1>
                 </div>
                 <div className='options'>

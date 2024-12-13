@@ -100,6 +100,12 @@ button {
   border-bottom-right-radius: 10px;
   min-width: 50px;
   box-shadow: 0 0.375em 0 var(--primary-color);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+  background-color: #374375;
 }
 
 .show-list-element {
@@ -116,7 +122,17 @@ button {
   text-decoration: none;
   color: var(--text-color);
   margin-left: 10px;
+  transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
 }
+
+.student-name a:hover {
+  transform: scale(1.1); 
+  color: var(--primary-color); 
+  background-color: rgba(55, 67, 117, 0.1);
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
 
 #grade-passed, #student-passed {
   background-color: var(--success-bg);
@@ -134,4 +150,16 @@ button {
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(137, 81, 89, 0.2);
+}
+
+.back-button {
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s ease;
+}
+
+.back-button:hover {
+  transform: scale(1.1); 
+  color: var(--primary-color); 
+  background-color: rgba(55, 67, 117, 0.1);
+  padding: 2px 5px;
+  border-radius: 5px;
 }
