@@ -55,7 +55,7 @@ const StudentGrades = () => {
                 <div className='options'>
                     <div className='add-form'>
                         <form onSubmit={handleSubmit}>
-                            <input id="left" type="text" name="course" value={course} onChange={handleInputChange} placeholder="Eneter/Select the course's name..." required></input>
+                            <input id="left" type="text" name="course" value={course} onChange={handleInputChange} placeholder="Eneter the course's name..." required></input>
                             <input type="number" name="grade" value={grade} onChange={handleInputChange} placeholder="Enter the grade..." min="0" max="20" step="0.01" required></input>
                             <button type="submit"><FontAwesomeIcon icon={faPlus} /></button>
                         </form>
